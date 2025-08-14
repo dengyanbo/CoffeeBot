@@ -226,14 +226,14 @@ async function initializeTable() {
     const authHeader = request.headers.get('authorization') || '';
     const body = await request.text();
     const activity = body ? JSON.parse(body) : {};
-    await adapter.processActivity(authHeader, activity, async (turnContext) => {
+    await (adapter as any).processActivity(authHeader, activity, async (turnContext: any) => {
       await (bot as any).run(turnContext);
     });
     
     return { status: 200 };
       
   } catch (error: any) {
-    context.log.error('Error processing request:', error);
+    context.log('Error processing request: ' + (error?.message || String(error)));
     return { 
       status: 500, 
       body: JSON.stringify({ error: 'Internal server error' }) 
