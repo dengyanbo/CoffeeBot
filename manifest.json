@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.0",
+  "id": "YOUR_BOT_APP_ID",
+  "packageName": "com.coffee.bot",
+  "developer": {
+    "name": "Coffee Bot Developer",
+    "websiteUrl": "https://www.microsoft.com",
+    "privacyUrl": "https://www.microsoft.com/privacy",
+    "termsOfUseUrl": "https://www.microsoft.com/termsofuse"
+  },
+  "icons": {
+    "color": "icon-color.png",
+    "outline": "icon-outline.png"
+  },
+  "name": {
+    "short": "Coffee Bot",
+    "full": "Coffee Ordering Bot with Quotas"
+  },
+  "description": {
+    "short": "Order coffee with daily quotas",
+    "full": "A friendly bot that helps team members order coffee with daily AM/PM quota management. Get notifications when orders are placed!"
+  },
+  "accentColor": "#8B4513",
+  "bots": [
+    {
+      "botId": "YOUR_BOT_APP_ID",
+      "scopes": [
+        "personal",
+        "team",
+        "groupchat"
+      ],
+      "commandLists": [
+        {
+          "scopes": [
+            "personal",
+            "team",
+            "groupchat"
+          ],
+          "commands": [
+            {
+              "title": "Order Coffee",
+              "description": "Place a coffee order"
+            },
+            {
+              "title": "Help",
+              "description": "Get help with coffee bot commands"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "*.azurewebsites.net"
+  ]
+}

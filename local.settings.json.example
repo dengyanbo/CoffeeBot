@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+    "MicrosoftAppId": "YOUR_BOT_APP_ID",
+    "MicrosoftAppPassword": "YOUR_BOT_APP_PASSWORD",
+    "MicrosoftAppType": "MultiTenant",
+    "AZURE_STORAGE_CONNECTION_STRING": "UseDevelopmentStorage=true",
+    "BARISTA_AAD_ID": "YOUR_AAD_OBJECT_ID",
+    "DAILY_AM_QUOTA": "15",
+    "DAILY_PM_QUOTA": "15",
+    "TIMEZONE": "America/New_York"
+  }
+}
+
