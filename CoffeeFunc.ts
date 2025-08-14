@@ -71,7 +71,7 @@ class CoffeeBot extends TeamsActivityHandler {
   async onInvokeActivity(context: any) {
     const value: any = (context.activity as any).value || {};
     const action = value.action || {};
-    const verb: string | undefined = action.verb || value.verb;
+    const verb: string | undefined = action.verb || value.verb || action.command || value.command;
     if (verb === 'orderCoffee') {
       return await this.handleOrder(context);
     }
@@ -81,7 +81,10 @@ class CoffeeBot extends TeamsActivityHandler {
   private async handleOrder(context: any) {
     try {
       const value: any = (context.activity as any).value || {};
-      const payload: any = value?.action?.data ? value.action.data : value; // fields only
+      const payloadRaw: any = value?.action?.data ? value.action.data : value; // fields only
+      const payload: any = { ...payloadRaw };
+      delete (payload as any).verb;
+      delete (payload as any).command;
       const from = context.activity.from;
       const nowUtc = dayjs.utc();
       const nowLocal = nowUtc.tz(TIMEZONE);

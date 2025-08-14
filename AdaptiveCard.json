@@ -1,7 +1,8 @@
 {
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "type": "AdaptiveCard",
-    "version": "1.6",
+    "version": "1.5",
+    "speak": "Coffee order card. Choose coffee type, size, and pickup window, then submit to place your order.",
     "backgroundImage": {
       "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-opacity='0.03'%3E%3Cpath d='M50 50c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm10 0c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm-20 0c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z'/%3E%3C/g%3E%3C/svg%3E",
       "fillMode": "repeat"
@@ -91,7 +92,8 @@
                       { "title": "☕ Medium (12oz)", "value": "Medium" },
                       { "title": "🪣 Large (16oz)", "value": "Large" }
                     ],
-                    "isRequired": true
+                    "isRequired": true,
+                    "errorMessage": "Please select a size."
                   }
                 ]
               },
@@ -108,7 +110,8 @@
                       { "title": "🌅 AM (before 12:00)", "value": "AM" },
                       { "title": "🌆 PM (after 12:00)", "value": "PM" }
                     ],
-                    "isRequired": true
+                    "isRequired": true,
+                    "errorMessage": "Please select a pickup window."
                   }
                 ]
               }
@@ -173,7 +176,7 @@
         "type": "Action.Submit",
         "title": "🚀 Place Order",
         "style": "positive",
-        "data": { "verb": "orderCoffee" }
+        "data": { "command": "orderCoffee" }
       }
     ]
   }
